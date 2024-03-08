@@ -13,7 +13,7 @@ function getData() {
         const request = new XMLHttpRequest();
         // 2. Configurar event handlers en el objeto XMLHttpRequest
         request.onreadystatechange = function () {
-            if (request.readyState = 4) {
+            if (request.readyState == 4) {
                 if (request.status == 200) {
                     console.log(request.response);
                     data = request.response;
@@ -27,15 +27,12 @@ function getData() {
         request.send(null);
 }
 
-function changeVideo() {
-    getData();
-    button.addEventListener("click", e => {
-        titleArea.innerHTML = data[number].title;
-        contentArea.innerHTML = data[number].content;
-        videoArea.setAttribute("src", data[number].url);
-        number === 2 ? number = 0 : number++;
-    });
-}
+button.addEventListener("click", e => {
+    console.log(data)
+    titleArea.innerHTML = data[number].title;
+    contentArea.innerHTML = data[number].content;
+    videoArea.setAttribute("src", data[number].url);
+    number === 2 ? number = 0 : number++;
+});
 
-
-window.onload = changeVideo;
+window.onload =   getData;
